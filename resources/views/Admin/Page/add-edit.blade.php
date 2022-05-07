@@ -19,7 +19,7 @@
                         </div>
                         <div class="form-group">
                             <label>Slug</label>
-                            <input type="text" class="form-control" placeholder="Slug" name="slug" required>
+                            <input type="text" class="form-control" placeholder="Slug" name="slug" >
                             <small class="error-msg"></small>
                         </div>
                         <div class="form-group checkbox-fg">
@@ -28,14 +28,14 @@
                             <label for="membership" class="c-label">Yes</label>
                             <small class="error-msg"></small>
                         </div>
-                        {{-- <div class="form-group">
+                        <div class="form-group">
                             <label>Content</label>
                             <textarea name="content" class="form-control" id="html-editor" placeholder="Content"></textarea>
                             <small class="error-msg"></small>
-                        </div> --}}
+                        </div>
                         <div class="form-group img-f-g">
                             <label>Featured Image</label>
-                            <input type="file" name="featured_image" accept="image/*"  required />
+                            <input type="file" name="featured_image" accept="image/*"   />
                             <small class="error-msg"></small>
                         </div>
                         

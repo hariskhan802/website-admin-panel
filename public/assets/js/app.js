@@ -157,7 +157,7 @@
                     $('[type="submit"][value="Publish"]').val(post_status);
                     $('.edit-page form [type="submit"][value="Add"] ').val('Update');
                     $('[name="_status"]').val(post_status);
-                    
+                    $('.cf-wrap.form-group').html(item?.cfHTML);
                     $.each(item,function(k, v) {
                        
                         
@@ -176,7 +176,7 @@
                                 
                                 $('.cf-wrap.form-group').html(v);
                             }
-                            else{ 
+                            else if (k != 'cfHTML') { 
                                 tinymce.activeEditor.setContent(v);
                             }
                         }
@@ -198,8 +198,8 @@
                         else if(isJSON(v)) {
                             
                             var jsonF = JSON.parse(v)
-                            if (Object.keys(jsonF).indexOf('section')) {
-                                
+                            if (k == 'cfHTML') {
+                                $('.cf-wrap.form-group').html(v);
                             }
                             else {
                                 $('#add-edit-modal .checkbox-fg').each(function(i) {
@@ -207,7 +207,8 @@
                                     /* if (jsonF.indexOf(elemPerm) != -1) {
                                         $(this).find('input[type="checkbox"]').prop('checked', true);
                                     } */
-                                    if (Object.keys(jsonF).indexOf(elemPerm)) {
+                                    console.log(jsonF)
+                                    if (jsonF && Object.keys(jsonF).indexOf(elemPerm)) {
                                         $(this).find('input[type="checkbox"]').prop('checked', true);
                                     }
                                     checkCheckboxes(this, false);
@@ -217,7 +218,7 @@
                         else {
                             
                             if (k == 'cfHTML') {
-                                alert('tttttt2');
+                                
                                 $('.cf-wrap.form-group').html(v);
                             }
                             else{

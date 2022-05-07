@@ -1,6 +1,6 @@
 
     
-    @if (@$cfFields !== null)
+    
     <div class="sections">
         <h5>Section 1</h5>
         <div class="cf-group repeater-field-g">
@@ -201,6 +201,163 @@
                     
                 </div>
                 @endforeach
+                @else
+                <div class="c-form-row">
+                    <div class="c-form-row-sub">
+                        <div class="f-c  fc-file">
+                            <div class="f-c-sub">
+                                <label>
+                                    Image 1
+                                </label>
+                                <input type="file" name="cf[section_2][boxes][0][image_1]"  data-file=""  accept="image/*" >
+                                
+                            </div>
+                        </div>
+                        <div class="f-c  fc-file">
+                            <div class="f-c-sub">
+                                <label>
+                                    Image 2
+                                </label>
+                                <input type="file" name="cf[section_2][boxes][0][image_2]"  data-file=""  accept="image/*" >
+                                
+                            </div>
+                        </div>
+                        <div class="f-c">
+                            <div class="f-c-sub">
+                                <label>
+                                    Heading 1
+                                </label>
+                                <input type="text" name="cf[section_2][boxes][0][heading_1]" value="" >
+                            </div>
+                        </div>
+                        <div class="f-c">
+                            <div class="f-c-sub">
+                                <label>
+                                    Text 1
+                                </label>
+                                <textarea rows="4" name="cf[section_2][boxes][0][text_1]"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="c-form-row">
+                    <div class="c-form-row-sub">
+                        <div class="f-c  fc-file">
+                            <div class="f-c-sub">
+                                <label>
+                                    Image 1
+                                </label>
+                                <input type="file" name="cf[section_2][boxes][1][image_1]"  data-file=""  accept="image/*" >
+                                
+                            </div>
+                        </div>
+                        <div class="f-c  fc-file">
+                            <div class="f-c-sub">
+                                <label>
+                                    Image 2
+                                </label>
+                                <input type="file" name="cf[section_2][boxes][1][image_2]"  data-file=""  accept="image/*" >
+                                
+                            </div>
+                        </div>
+                        <div class="f-c">
+                            <div class="f-c-sub">
+                                <label>
+                                    Heading 1
+                                </label>
+                                <input type="text" name="cf[section_2][boxes][1][heading_1]" value="" >
+                            </div>
+                        </div>
+                        <div class="f-c">
+                            <div class="f-c-sub">
+                                <label>
+                                    Text 1
+                                </label>
+                                <textarea rows="4" name="cf[section_2][boxes][1][text_1]"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="c-form-row">
+                    <div class="c-form-row-sub">
+                        <div class="f-c  fc-file">
+                            <div class="f-c-sub">
+                                <label>
+                                    Image 1
+                                </label>
+                                <input type="file" name="cf[section_2][boxes][2][image_1]"  data-file=""  accept="image/*" >
+                                
+                            </div>
+                        </div>
+                        <div class="f-c  fc-file">
+                            <div class="f-c-sub">
+                                <label>
+                                    Image 2
+                                </label>
+                                <input type="file" name="cf[section_2][boxes][2][image_2]"  data-file=""  accept="image/*" >
+                                
+                            </div>
+                        </div>
+                        <div class="f-c">
+                            <div class="f-c-sub">
+                                <label>
+                                    Heading 1
+                                </label>
+                                <input type="text" name="cf[section_2][boxes][2][heading_1]" value="" >
+                            </div>
+                        </div>
+                        <div class="f-c">
+                            <div class="f-c-sub">
+                                <label>
+                                    Text 1
+                                </label>
+                                <textarea rows="4" name="cf[section_2][boxes][2][text_1]"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="c-form-row">
+                    <div class="c-form-row-sub">
+                        <div class="f-c  fc-file">
+                            <div class="f-c-sub">
+                                <label>
+                                    Image 1
+                                </label>
+                                <input type="file" name="cf[section_2][boxes][3][image_1]"  data-file=""  accept="image/*" >
+                                
+                            </div>
+                        </div>
+                        <div class="f-c  fc-file">
+                            <div class="f-c-sub">
+                                <label>
+                                    Image 2
+                                </label>
+                                <input type="file" name="cf[section_2][boxes][3][image_2]"  data-file=""  accept="image/*" >
+                                
+                            </div>
+                        </div>
+                        <div class="f-c">
+                            <div class="f-c-sub">
+                                <label>
+                                    Heading 1
+                                </label>
+                                <input type="text" name="cf[section_2][boxes][3][heading_1]" value="" >
+                            </div>
+                        </div>
+                        <div class="f-c">
+                            <div class="f-c-sub">
+                                <label>
+                                    Text 1
+                                </label>
+                                <textarea rows="4" name="cf[section_2][boxes][3][text_1]"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
                 @endif
             </div>
             <small class="error-msg"></small>
@@ -293,6 +450,73 @@
                                             </div>
                                         </div>
                                         @endif
+                                        <div class="r-plus-btn-wrap r-i-d">
+                                            <div class=" r-plus-btn-sub">
+                                                <a href="javascript:;" class="r-plus-btn"><i class="fa fa-plus"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <small class="error-msg"></small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                @else
+                <div class="c-form-row">
+                    <div class="c-form-row-sub">
+                        <div class="f-c  fc-file">
+                            <div class="f-c-sub">
+                                <label>
+                                    Image 1
+                                </label>
+                                <input type="file" name="cf[section_3][who_are_we][image_1]"  data-file=""  accept="image/*" >
+                                
+
+                            </div>
+                        </div>
+                        <div class="f-c">
+                            <div class="f-c-sub">
+                                <label>
+                                    Heading 1
+                                </label>
+                                <input type="text" name="cf[section_3][who_are_we][heading_1]"  >
+                            </div>
+                        </div>
+                        <div class="f-c">
+                            <div class="f-c-sub">
+                                <label>
+                                    Content 1
+                                </label>
+                                <textarea rows="4" name="cf[section_3][who_are_we][content_1]" ></textarea>
+                            </div>
+                        </div>
+                        <div class="f-c f-c-sub-field">
+                            <div class="f-c-sub">
+
+                                <div class="cf-group repeater-field-g">
+                                    <div class="c-form-group">
+                                        
+                                        <div class="c-form-row">
+                                            <div class="c-form-row-sub">
+                                                
+                                                <div class="f-c">
+                                                    <div class="f-c-sub">
+                                                        <label>
+                                                            Text
+                                                        </label>
+                                                        <input type="text" pname="cf[section_3][who_are_we][text_repeater]"  data-name="text"  data-index="0" >
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+                                            <div class="f-c r-i-d">
+                                                <div class="f-c-sub">
+                                                    <a href="javascript:;" class="r-minus-btn"><i class="fa fa-minus"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div class="r-plus-btn-wrap r-i-d">
                                             <div class=" r-plus-btn-sub">
                                                 <a href="javascript:;" class="r-plus-btn"><i class="fa fa-plus"></i></a>
@@ -445,6 +669,145 @@
                                     Instagram 1 Link
                                 </label>
                                 <input type="text" name="cf[section_4][boxes][2][instagram_1_link]"   value="{{ @$cfFields['section_4']['boxes'][2]['instagram_1_link'] }}"  >
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+                <small class="error-msg"></small>
+            </div>
+        </div>
+        @else
+        <div class="cf-group ">
+            <label>Boxes</label>
+            <div class="c-form-group">
+                <div class="c-form-row">
+                    <div class="c-form-row-sub">
+                        <div class="f-c">
+                            <div class="f-c-sub">
+                                <label>
+                                    Heading
+                                </label>
+                                <input type="text" name="cf[section_4][heading]"  >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cf-group ">
+            <label>Boxes</label>
+            <div class="c-form-group">
+                <div class="c-form-row">
+                    <div class="c-form-row-sub">
+                        <div class="f-c">
+                            <div class="f-c-sub">
+                                <label>
+                                    Heading
+                                </label>
+                                <input type="text" name="cf[section_4][boxes][0][heading]"  >
+                            </div>
+                        </div>
+                        <div class="f-c">
+                            <div class="f-c-sub">
+                                <label>
+                                    Text
+                                </label>
+                                <textarea rows="4" name="cf[section_4][boxes][0][text]"></textarea>
+                            </div>
+                        </div>
+                        <div class="f-c">
+                            <div class="f-c-sub">
+                                <label>
+                                    Button 1 Text
+                                </label>
+                                <input type="text" name="cf[section_4][boxes][0][button_1_text]"  >
+                            </div>
+                        </div>
+                        <div class="f-c">
+                            <div class="f-c-sub">
+                                <label>
+                                    Button 1 Link
+                                </label>
+                                <input type="text" name="cf[section_4][boxes][0][button_1_link]"    >
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="c-form-row">
+                    <div class="c-form-row-sub">
+                        <div class="f-c">
+                            <div class="f-c-sub">
+                                <label>
+                                    Heading
+                                </label>
+                                <input type="text" name="cf[section_4][boxes][1][heading]"   >
+                            </div>
+                        </div>
+                        <div class="f-c">
+                            <div class="f-c-sub">
+                                <label>
+                                    Text
+                                </label>
+                                <textarea rows="4" name="cf[section_4][boxes][1][text]" ></textarea>
+                            </div>
+                        </div>
+                        <div class="f-c">
+                            <div class="f-c-sub">
+                                <label>
+                                    Button 1 Text
+                                </label>
+                                <input type="text" name="cf[section_4][boxes][1][button_1_text]"  >
+                            </div>
+                        </div>
+                        <div class="f-c">
+                            <div class="f-c-sub">
+                                <label>
+                                    Button 1 Link
+                                </label>
+                                <input type="text" name="cf[section_4][boxes][1][button_1_link]"   >
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="c-form-row">
+                    <div class="c-form-row-sub">
+                        <div class="f-c">
+                            <div class="f-c-sub">
+                                <label>
+                                    Heading
+                                </label>
+                                <input type="text" name="cf[section_4][boxes][2][heading]"   >
+                            </div>
+                        </div>
+                        
+                        <div class="f-c">
+                            <div class="f-c-sub">
+                                <label>
+                                    Facebook 1 Link
+                                </label>
+                                <input type="text" name="cf[section_4][boxes][2][facebook_1_link]"   >
+                            </div>
+                        </div>
+                        
+                        <div class="f-c">
+                            <div class="f-c-sub">
+                                <label>
+                                    Twitter 1 Link
+                                </label>
+                                <input type="text" name="cf[section_4][boxes][2][twitter_1_link]"    >
+                            </div>
+                        </div>
+                        
+                        <div class="f-c">
+                            <div class="f-c-sub">
+                                <label>
+                                    Instagram 1 Link
+                                </label>
+                                <input type="text" name="cf[section_4][boxes][2][instagram_1_link]"    >
                             </div>
                         </div>
                     </div>
@@ -660,6 +1023,115 @@
                 </div>
             </div>
         </div>
+        @else
+        <div class="cf-group ">
+            <label>Classes</label>
+            
+            <div class="c-form-group">
+                
+                <div class="c-form-row">
+                    <div class="c-form-row-sub">
+                        <div class="f-c">
+                            <div class="f-c-sub">
+                                <label>
+                                    Heading
+                                </label>
+                                <input type="text" name="cf[section_6][heading]"  >
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                
+                
+                <small class="error-msg"></small>
+            </div>
+        </div>
+        <div class="cf-group ">
+            <div class="c-form-group">
+                <div class="c-form-row">
+                    <div class="c-form-row-sub">
+                        <div class="f-c">
+                            <div class="f-c-sub">
+                                <label>
+                                    Text 1
+                                </label>
+                                <input type="text" name="cf[section_6][classes][text_1]"   >
+                            </div>
+                        </div>
+                        <div class="f-c">
+                            <div class="f-c-sub">
+                                <label>
+                                    Link 1
+                                </label>
+                                <input type="text" name="cf[section_6][classes][link_1]"  >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="c-form-row">
+                    <div class="c-form-row-sub">
+                        <div class="f-c">
+                            <div class="f-c-sub">
+                                <label>
+                                    Text 2
+                                </label>
+                                <input type="text" name="cf[section_6][classes][text_2]"  >
+                            </div>
+                        </div>
+                        <div class="f-c">
+                            <div class="f-c-sub">
+                                <label>
+                                    Link 2
+                                </label>
+                                <input type="text" name="cf[section_6][classes][link_2]"   >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="c-form-row">
+                    <div class="c-form-row-sub">
+                        <div class="f-c">
+                            <div class="f-c-sub">
+                                <label>
+                                    Text 3
+                                </label>
+                                <input type="text" name="cf[section_6][classes][text_3]"    >
+                            </div>
+                        </div>
+                        <div class="f-c">
+                            <div class="f-c-sub">
+                                <label>
+                                    Link 3
+                                </label>
+                                <input type="text" name="cf[section_6][classes][link_3]"   >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="c-form-row">
+                    <div class="c-form-row-sub">
+                        <div class="f-c">
+                            <div class="f-c-sub">
+                                <label>
+                                    Button 1 Text
+                                </label>
+                                <input type="text" name="cf[section_6][classes][button_1_text]"    >
+                            </div>
+                        </div>
+                        <div class="f-c">
+                            <div class="f-c-sub">
+                                <label>
+                                    Button 1 Link
+                                </label>
+                                <input type="text" name="cf[section_6][classes][button_1_link]"   >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         @endif
     
     
@@ -719,6 +1191,57 @@
                 
             </div>
         </div>
+        @else
+        <div class="cf-group ">
+            <label>Latest Articles</label>
+            
+            <div class="c-form-group">
+                <div class="c-form-row">
+                    <div class="c-form-row-sub">
+                        <div class="f-c">
+                            <div class="f-c-sub">
+                                <label>
+                                    Heading 1
+                                </label>
+                                <input type="text" name="cf[section_7][heading_1]"  >
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="c-form-row">
+                    <div class="c-form-row-sub">
+                        <div class="f-c">
+                            <div class="f-c-sub">
+                                <label>
+                                    Heading 2
+                                </label>
+                                <input type="text" name="cf[section_7][heading_2]"  >
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <small class="error-msg"></small>
+            </div>
+        </div>
+        <div class="cf-group ">
+            <div class="c-form-group">
+                <div class="c-form-row">
+                    <div class="c-form-row-sub">
+                        <div class="f-c">
+                            <div class="f-c-sub">
+                                <label>
+                                    Articles Shorcode
+                                </label>
+                                <input type="text" name="cf[section_7][latest_articles][articles_shorcode]"    >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
         @endif
     </div>
 
@@ -758,6 +1281,46 @@
                                     Text
                                 </label>
                                 <input type="text" name="cf[section_8][contact_form][text]"  value="{{ @$cfFields['section_8']['contact_form']['text'] }}" >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        @else
+        <div class="cf-group ">
+            <label>Contact Form</label>
+            
+            <div class="c-form-group">
+                <div class="c-form-row">
+                    <div class="c-form-row-sub">
+                        <div class="f-c">
+                            <div class="f-c-sub">
+                                <label>
+                                    Heading
+                                </label>
+                                <input type="text" name="cf[section_8][heading]"    >
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                
+                <small class="error-msg"></small>
+            </div>
+        </div>
+        <div class="cf-group ">
+            <div class="c-form-group">
+                <div class="c-form-row">
+                    <div class="c-form-row-sub">
+                        <div class="f-c">
+                            <div class="f-c-sub">
+                                <label>
+                                    Text
+                                </label>
+                                <input type="text" name="cf[section_8][contact_form][text]"   >
                             </div>
                         </div>
                     </div>
@@ -829,6 +1392,64 @@
             </div>
             <small class="error-msg"></small>
         </div>
+        @else
+        <div class="cf-group ">
+            <label>Our Members</label>
+            
+            <div class="c-form-group">
+                <div class="c-form-row">
+                    <div class="c-form-row-sub">
+                        <div class="f-c">
+                            <div class="f-c-sub">
+                                <label>
+                                    Heading
+                                </label>
+                                <input type="text" name="cf[section_9][heading]"   >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <small class="error-msg"></small>
+            </div>
+        </div>
+        <div class="cf-group repeater-field-g">
+            <div class="c-form-group">
+                
+                <div class="c-form-row">
+                    <div class="c-form-row-sub">
+                        <div class="f-c">
+                            <div class="f-c-sub">
+                                <label>
+                                    Name
+                                </label>
+                                <input type="text" pname="cf[section_9][our_members]" data-name="name"  data-index="0" >
+                            </div>
+                        </div>
+                        
+                        <div class="f-c fc-file">
+                            <div class="f-c-sub">
+                                <label>
+                                    Image
+                                </label>
+                                <input type="file" pname="cf[section_9][our_members]" accept="image/*"  data-file=""  data-name="image" data-index="0"  >
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="f-c r-i-d">
+                        <div class="f-c-sub">
+                            <a href="javascript:;" class="r-minus-btn"><i class="fa fa-minus"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="r-plus-btn-wrap r-i-d">
+                    <div class=" r-plus-btn-sub">
+                        <a href="javascript:;" class="r-plus-btn"><i class="fa fa-plus"></i></a>
+                    </div>
+                </div>
+            </div>
+            <small class="error-msg"></small>
+        </div>
         @endif
     </div>
-    @endif

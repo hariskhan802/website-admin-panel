@@ -1,13 +1,6 @@
-<!-- Bootstrap core JavaScript-->
-<script src="{{ asset('public/assets/vendor/jquery/jquery.min.js') }}"></script>
-<script src="{{ asset('public/assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-
-<!-- Core plugin JavaScript-->
-<script src="{{ asset('public/assets/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
-
-<!-- Custom scripts for all pages-->
-<script src="{{ asset('public/assets/js/sb-admin-2.min.js') }}"></script>
-<script src="{{ asset('public/assets/vendor/datatables/jquery.dataTables.min.js') }}"></script>
-<script src="{{ asset('public/assets/vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
-<script src="https://cdn.tiny.cloud/1/3nh4mufsrn0nc5aj86g0bvfnwti30qrpaejoitnks3omitzc/tinymce/4/tinymce.min.js" referrerpolicy="origin"></script>
-<script src="{{  asset('public/assets/js/app.js') }}"></script>
+<script src="{{ asset('public/Frontend/js/allmix.js') }}"></script> 
+<script src="{{ asset('public/Frontend/js/jquery.slicknav.js') }}"></script> 
+<script src="{{ asset('public/Frontend/js/aos.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script src="{{ asset('public/Frontend/js/custom.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

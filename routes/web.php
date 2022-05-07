@@ -5,15 +5,12 @@ use App\Http\Controllers\Admin\{
     AuthController,
     DashboardController,
     PostController,
-    TermController,
     PageController,
-    CommentController,
-    UserController,
-    RoleController,
     SettingController,
-    TemplateController,
     ArticleController,
 };
+use App\Http\Controllers\Frontend\FrontendController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -79,3 +76,5 @@ Route::group(['prefix' => 'admin', 'middleware' => ['AdminCheck']], function() {
    
 
 });
+
+Route::get('/', [FrontendController::class, 'home'])->name('home');

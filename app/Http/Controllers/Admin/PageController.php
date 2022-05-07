@@ -9,6 +9,7 @@ use App\Models\Option;
 use Illuminate\Support\Facades\Validator;
 use File;
 use Image;
+use Illuminate\Support\Str;
 
 class PageController extends Controller
 {
@@ -82,6 +83,7 @@ class PageController extends Controller
             // 'slug' => 'required|unique:pages',
             // 'featured_image' => 'required||file|max:1000|mimes:'.get_image_extensions('string'),
         ]);
+        
         $data['user_id'] = c_user()->id;
         $data['post_status'] = 'drafted';
         if ($data['_status'] == 'Publish') {
@@ -92,6 +94,9 @@ class PageController extends Controller
             $response['status'] = 'fail';
             return $response;
         }
+        $data['featured_image'] = '';
+        if(empty($data['content']))
+        $data['content'] = empty($data['content']) ? '' : $data['content'];
         $image = $req->file('featured_image');
         if ($image) {
 
@@ -109,7 +114,10 @@ class PageController extends Controller
         if (array_value($data, 'is_front_page') == '1') {
             Page::where(['is_front_page' => '1'])->update(['is_front_page' => 0]);
         }
-        $data['content'] = serialize($data['cf']);
+        
+        if (empty(@$data['slug'])) {
+            $data['slug'] = Str::slug(@$data['title']);
+        }
         if(Page::create($data)) {
             $response['status'] = 'success';
             $response['message'] = 'You have added successfully';
@@ -129,10 +137,7 @@ class PageController extends Controller
             $data = $req->all();
             if(is_array($data['cf'])) {
                 // print_r($data['cf']); die;
-                $bannerImages  = [];
-                $image  = [];
-                $image1  = [];
-                $image2  = [];
+                
                 $cf = [];
                 // print_r($data['cf']); 
                 // echo('ttttttt');
@@ -154,9 +159,13 @@ class PageController extends Controller
                 }
                 
             }
-            // print_r($cf['section_3']['who_are_we']['image_1']);  die('ttttttttttttttttttt');
-            // die;
-            $data['content'] = json_encode($cf);
+            if (empty(@$data['slug'])) {
+                $data['slug'] = Str::slug(@$data['title']);
+            }
+            $data['slug'] = empty(@$data['slug']) ? Str::slug(@$data['title']) : @$data['slug'];
+            $data['content'] = !empty(@$data['content']) ? @$data['content'] : '';
+            
+            $data['custom_fields'] = json_encode($cf);
             // $data['content'] = view('Admin.Page.Fields.home-fields');
 
             $response = ['status' => [], 'errors' => []];
@@ -182,8 +191,8 @@ class PageController extends Controller
                 $response['status'] = 'fail';
                 return $response;
             }
-
-            $data['featured_image'] = $data['_featured_image'];
+            
+            $data['featured_image'] = !empty(@$data['_featured_image']) ? @$data['_featured_image'] : '';
             if ($req->file('featured_image')) {
                 File::delete('public/assets/images/'.$data['_featured_image']);
                 $image = $req->file('featured_image');
@@ -199,6 +208,7 @@ class PageController extends Controller
             if (array_value($data, 'is_front_page') == '1') {
                 Page::where(['is_front_page' => '1'])->update(['is_front_page' => 0]);
             }
+           
             // print_r($data); die;
             if($page->update($data)) {
                 $response['status'] = 'success';
@@ -213,10 +223,10 @@ class PageController extends Controller
                 
                 ];
 
-                $content = $page->content;
-                unset($page->content);
-                // print_r($page->content); die;
-                $page->cfHTML = \View::make(array_value($fieldFiles, $id), ['cfFields' => object_to_array(json_decode($content)) ])->render();
+                $customFields = $page->custom_fields;
+                unset($page->custom_fields);
+                // print_r(array_value($fieldFiles, $id)); die;
+                $page->cfHTML = array_value($fieldFiles, $id) ? \View::make(array_value($fieldFiles, $id), ['cfFields' => object_to_array(json_decode($customFields)) ])->render() : '';
                 $response = ['status' => 'success', 'item' => $page];
                 return $response;
             }
@@ -243,7 +253,7 @@ class PageController extends Controller
         if ($req->isMethod('post')) {
             $data = $req->all();
             if(is_array($data['cf'])) {
-                print_r($data['cf']); die;
+                // print_r($data['cf']); die;
                 
                 $cf = [];
                 // print_r($data['cf']); 
@@ -281,10 +291,10 @@ class PageController extends Controller
                 
                 ];
 
-                $content = $page->content;
-                unset($page->content);
+                $customFields = $page->custom_fields;
+                unset($page->custom_fields);
                 // print_r($page->content); die;
-                $page->cfHTML = \View::make(array_value($fieldFiles, $id), ['cfFields' => object_to_array(json_decode($content)) ])->render();
+                $page->cfHTML = \View::make(array_value($fieldFiles, $id), ['cfFields' => object_to_array(json_decode($customFields)) ])->render();
                 $response = ['status' => 'success', 'item' => $page];
                 return $response;
             }

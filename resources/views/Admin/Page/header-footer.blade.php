@@ -709,7 +709,7 @@
                                                                 <label>
                                                                     Image
                                                                 </label>
-                                                                <input type="file" pname="cf[footer][bottom][image]" accept="image/*"  data-file="{{ @$headerFooter['footer']['bottom']['image'] }}"   >
+                                                                <input type="file" name="cf[footer][bottom][image]" accept="image/*"  data-file="{{ @$headerFooter['footer']['bottom']['image'] }}"   >
                                                                 <img src="{{ get_image(@$headerFooter['footer']['bottom']['image']) }}" width="50" class="cf-preview-img" />
                                                             </div>
                                                         </div>
@@ -776,7 +776,7 @@
                                                                 <label>
                                                                     Image
                                                                 </label>
-                                                                <input type="file" pname="cf[footer][bottom][image]" accept="image/*"  data-file=""   >
+                                                                <input type="file" name="cf[footer][bottom][image]" accept="image/*"  data-file=""   >
                                                                 
                                                             </div>
                                                         </div>
