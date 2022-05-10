@@ -190,11 +190,11 @@
                                 }
                             });
                         }
-                        else if (k == 'is_front_page' ) {
+                        /*else if (k == 'is_front_page' ) {
                             // alert('is_front_page '+k);
 
                             $('[type="checkbox"][name="'+k+'"]').prop('checked', v == '1' ? true : false);
-                        }
+                        }*/
                         else if(isJSON(v)) {
                             
                             var jsonF = JSON.parse(v)
@@ -332,6 +332,9 @@
                     '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
                     // '//www.tinymce.com/css/codepen.min.css'
                     ],
+                relative_urls : false,
+                remove_script_host : false,
+                convert_urls : true,    
             });
         }
         
@@ -404,6 +407,7 @@
             $('.user-m-wrap [type="submit"], .template-m-wrap [type="submit"]').val('Add');
             $('.edit-img').remove();
             $('#add-edit-modal form .modal-title').text('Add New');
+            $('.cf-wrap.form-group').html('');
         });
         $('[name="submit"][value="Publish"]').click(function() {
             if ($(this).closest('form').length > 0) {

@@ -48,6 +48,7 @@ class ArticleController extends Controller
             'slug' => 'required|unique:articles',
             'featured_image' => 'required||file|max:1000|mimes:'.get_image_extensions('string'),
         ]);
+        $data['content'] = !empty(@$data['content']) ? @$data['content'] : '';
         $data['user_id'] = c_user()->id;
         $data['post_status'] = 'drafted';
         if ($data['_status'] == 'Publish') {
@@ -92,7 +93,6 @@ class ArticleController extends Controller
             $vArgs = [
                 'title' => 'required',
                 'slug' => 'required|unique:articles',
-                'content' => 'required',
                 'featured_image' => 'required|file|max:1000|mimes:'.get_image_extensions('string'),
             ];
             if ($data['_featured_image']  == $article->featured_image)
@@ -102,6 +102,7 @@ class ArticleController extends Controller
                 unset($vArgs['slug']);
 
             $validated = Validator::make($data, $vArgs);
+            $data['content'] = !empty(@$data['content']) ? @$data['content'] : '';
             $data['post_status'] = 'drafted';
             if ($data['_status'] == 'Publish' || $data['_status'] == 'Update') {
                 $data['post_status'] = 'published';

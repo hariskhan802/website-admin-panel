@@ -23,7 +23,7 @@ class CreatePagesTable extends Migration
             $table->longText('custom_fields')->nullable();
             $table->string('featured_image');
             $table->string('user_id');
-            $table->integer('is_front_page')->default('0');
+            // $table->integer('is_front_page')->default('0');
             // $table->string('post_status');
             $table->timestamps();
         });

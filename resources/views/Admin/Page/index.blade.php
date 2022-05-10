@@ -98,7 +98,7 @@
                                         <tr>
                                             <td><input type="checkbox" name="action_ids[]" value="{{ $record->id }}"></td>
                                             <td>{{ $record->title }}
-                                                @if ($record->is_front_page == 1)
+                                                @if ($record->id == 1)
                                                     
                                                 <span class="fp-btn">Front Page</span>
                                                 @endif
@@ -106,7 +106,8 @@
                                             <td><img src="{{ get_image($record->featured_image) }}" width="50"></td>
                                             <td>{{ $record->created_at->diffForHumans() }}</td>
                                             <td class="action">
-                                                <a href="{{ route('edit-'.word_format($name), $record->id) }}" class="edit-record"><i class="fa fa-pencil-alt"></i></a>
+                                                <a href="{{ route('edit-'.word_format($name), $record->id) }}" class="edit-record" title="Edit"><i class="fa fa-pencil-alt"></i></a>
+                                                <a href="{{ route('inner-'.word_format($name), $record->slug) }}"  title="View"><i class="fa fa-eye"></i></a>
                                             </td>
                                         </tr> 
                                     @endforeach

@@ -77,28 +77,32 @@
                                             <small class="error-msg"></small>
                                         </div>
                                     </div>
+                                    
                                     <div class="sections">    
                                         <div class="cf-group repeater-field-g">
                                             <label>Menu</label>
                                             <div class="c-form-group">
-                                                @if ( array_value(array_value(@$headerFooter, 'header'), 'menu'))
-                                                @foreach (@$headerFooter['header']['menu'] as $key => $item)
+                                                @if ( array_value(array_value(@$headerFooter, 'header'), 'menus'))
+                                                @foreach (@$headerFooter['header']['menus'] as $key => $item)
                                                 <div class="c-form-row">
                                                     <div class="c-form-row-sub">
                                                         <div class="f-c">
                                                             <div class="f-c-sub">
                                                                 <label>
-                                                                    Menu Label
+                                                                    Page
                                                                 </label>
-                                                                <input type="text" pname="cf[header][menu]" data-name="menu_label"  value="{{ @$item['menu_label'] }}" data-index="{{ $key }}"  >
-                                                            </div>
-                                                        </div>
-                                                        <div class="f-c">
-                                                            <div class="f-c-sub">
-                                                                <label>
-                                                                    Menu Link
-                                                                </label>
-                                                                <input type="text" pname="cf[header][menu]"  data-name="menu_link"   value="{{ @$item['menu_link'] }}" data-index="{{ $key }}" >
+                                                                @if ($mPages->count() > 0)
+                                                                @php
+                                                                    $seletedIDs = array_column(@$headerFooter['header']['menus'], 'page');
+                                                                    // print_r(@$headerFooter['header']['menus'][0]['page']); 
+                                                                    // die;
+                                                                @endphp
+                                                                <select pname="cf[header][menus]" data-name="page"  value="{{ @$item['page'] }}" data-index="{{ $key }}" >
+                                                                    @foreach($mPages as $key2 => $mPage)
+                                                                        <option value="{{ $mPage->id }}"  {{ $mPage->id == @$headerFooter['header']['menus'][$key]['page'] ? 'selected' : '' }} >{{ $mPage->title }}</option>
+                                                                    @endforeach
+                                                                </select>
+                                                                @endif
                                                             </div>
                                                         </div>
                                                         
@@ -117,17 +121,16 @@
                                                         <div class="f-c">
                                                             <div class="f-c-sub">
                                                                 <label>
-                                                                    Menu Label
+                                                                    Page
                                                                 </label>
-                                                                <input type="text" pname="cf[header][menu]" data-name="menu_label" data-index="0"  >
-                                                            </div>
-                                                        </div>
-                                                        <div class="f-c">
-                                                            <div class="f-c-sub">
-                                                                <label>
-                                                                    Menu Link
-                                                                </label>
-                                                                <input type="text" pname="cf[header][menu]"  data-name="menu_link"  data-index="0" >
+                                                                @if ($mPages->count() > 0)
+                                                                
+                                                                <select pname="cf[header][menus]" data-name="page" data-index="0" >
+                                                                    @foreach($mPages as $key2 => $mPage)
+                                                                        <option value="{{ $mPage->id }}"  >{{ $mPage->title }}</option>
+                                                                    @endforeach
+                                                                </select>
+                                                                @endif
                                                             </div>
                                                         </div>
                                                         
@@ -370,6 +373,7 @@
                                                             </div>
                                                         </div>
                                                         
+                                                        
                                                     </div>
                                                     <div class="f-c r-i-d">
                                                         <div class="f-c-sub">
@@ -382,6 +386,7 @@
                                                 @else
                                                 <div class="c-form-row">
                                                     <div class="c-form-row-sub">
+                                                        
                                                         <div class="f-c">
                                                             <div class="f-c-sub">
                                                                 <label>
@@ -448,6 +453,7 @@
                                                 @foreach (@$headerFooter['footer']['column_3']['menus'] as $key => $item)
                                                 <div class="c-form-row">
                                                     <div class="c-form-row-sub">
+                                                        
                                                         <div class="f-c">
                                                             <div class="f-c-sub">
                                                                 <label>
@@ -464,7 +470,6 @@
                                                                 <input type="text" pname="cf[footer][column_3][menus]"  data-name="menu_link"   value="{{ @$item['menu_link'] }}" data-index="{{ $key }}" >
                                                             </div>
                                                         </div>
-                                                        
                                                     </div>
                                                     <div class="f-c r-i-d">
                                                         <div class="f-c-sub">
@@ -480,17 +485,18 @@
                                                         <div class="f-c">
                                                             <div class="f-c-sub">
                                                                 <label>
-                                                                    Menu Label
+                                                                    Page
                                                                 </label>
-                                                                <input type="text" pname="cf[footer][column_3][menus]" data-name="menu_label"  data-index="0"  >
-                                                            </div>
-                                                        </div>
-                                                        <div class="f-c">
-                                                            <div class="f-c-sub">
-                                                                <label>
-                                                                    Menu Link
-                                                                </label>
-                                                                <input type="text" pname="cf[footer][column_3][menus]"  data-name="menu_link"    data-index="0" >
+                                                                
+                                                                @if ($mPages->count() > 0)
+                                                                <select pname="cf[footer][column_3][menus]" data-name="page"  value="{{ @$item['page'] }}" data-index="{{ $key }}" >
+                                                                    
+                                                                    @foreach($mPages as $key => $mPage)
+                                                                        <option value="{{ $mPage->id }}"  >{{ $mPage->title }}</option>
+                                                                        
+                                                                    @endforeach
+                                                                </select>
+                                                                @endif
                                                             </div>
                                                         </div>
                                                         

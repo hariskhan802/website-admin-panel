@@ -22,12 +22,12 @@
                             <input type="text" class="form-control" placeholder="Slug" name="slug" >
                             <small class="error-msg"></small>
                         </div>
-                        <div class="form-group checkbox-fg">
+                        <!-- <div class="form-group checkbox-fg">
                             <label class="m-label">Is Front Page</label>
                             <input type="checkbox" class="form-control"  name="is_front_page"  id="is_front_page" value="1" >
                             <label for="membership" class="c-label">Yes</label>
                             <small class="error-msg"></small>
-                        </div>
+                        </div> -->
                         <div class="form-group">
                             <label>Content</label>
                             <textarea name="content" class="form-control" id="html-editor" placeholder="Content"></textarea>

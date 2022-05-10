@@ -824,6 +824,29 @@
     
     <div class="sections">
         <h5>Section 5</h5>
+        <div class="cf-group ">
+            
+            <div class="c-form-group">
+                
+                <div class="c-form-row">
+                    <div class="c-form-row-sub">
+                        <div class="f-c">
+                            <div class="f-c-sub">
+                                <label>
+                                    Heading
+                                </label>
+                                <input type="text" name="cf[section_5][heading]" value="{{ @$cfFields['section_5']['heading']}}" >
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                
+                
+                <small class="error-msg"></small>
+            </div>
+        </div>
         <div class="cf-group repeater-field-g">
             <label>Video Slider</label>
             <div class="c-form-group c-col-4">
@@ -1174,23 +1197,7 @@
                 <small class="error-msg"></small>
             </div>
         </div>
-        <div class="cf-group ">
-            <div class="c-form-group">
-                <div class="c-form-row">
-                    <div class="c-form-row-sub">
-                        <div class="f-c">
-                            <div class="f-c-sub">
-                                <label>
-                                    Articles Shorcode
-                                </label>
-                                <input type="text" name="cf[section_7][latest_articles][articles_shorcode]"  value="{{ @$cfFields['section_7']['latest_articles']['articles_shorcode'] }}"  >
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
+        
         @else
         <div class="cf-group ">
             <label>Latest Articles</label>
@@ -1225,23 +1232,7 @@
                 <small class="error-msg"></small>
             </div>
         </div>
-        <div class="cf-group ">
-            <div class="c-form-group">
-                <div class="c-form-row">
-                    <div class="c-form-row-sub">
-                        <div class="f-c">
-                            <div class="f-c-sub">
-                                <label>
-                                    Articles Shorcode
-                                </label>
-                                <input type="text" name="cf[section_7][latest_articles][articles_shorcode]"    >
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
+        
         @endif
     </div>
 

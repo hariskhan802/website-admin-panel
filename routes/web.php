@@ -30,16 +30,13 @@ Route::get('/test321', function(){
         
     // ];
     // var_dump(DB::table('terms')->insertGetId($cats)); die;
+    // echo request()->route()->parameter('id');
+
+    // echo '<img src="'.get_user_image('img-623cde3a98177164815621.jpg').'" />';
+    // echo bcrypt('haris123');
     dd(get_post_meta(1, '__featured_image', true));
 });
 
-
-Route::get('/', function(){
-    // echo bcrypt('haris123');
-    echo request()->route()->parameter('id');
-
-    echo '<img src="'.get_user_image('img-623cde3a98177164815621.jpg').'" />';
-});
 
 // Route::fallback(function () {
 //     return redirect("/");
@@ -74,7 +71,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['AdminCheck']], function() {
     // Settings Route
     Route::match(['get', 'post'], 'settings', [SettingController::class, 'settings'])->name('settings');
    
-
+    
 });
 
 Route::get('/', [FrontendController::class, 'home'])->name('home');
+Route::get('/page/{slug}', [FrontendController::class, 'inner_page'])->name('inner-page');
+Route::post('/form-submit', [FrontendController::class, 'form_submit'])->name('form-submit');

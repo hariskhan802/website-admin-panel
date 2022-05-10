@@ -272,3 +272,29 @@ $('.owl-carousel').owlCarousel({
       }
   }
 })
+
+
+$(function() {
+    
+    $('.c-form-e').submit(function(e) {
+        e.preventDefault();
+        var action = $(this).attr('action');
+        $.ajax({
+            method: "POST",
+            url: action,
+            data: new FormData(this),
+            cache: false,
+            processData: false,
+            contentType: false,
+            error: function() {
+                alert('Something went wrong!');
+            },
+            success: (data) => {
+                if(data.status == 'success') {
+                    alert(data.message)
+                    this.reset();
+                }
+            },
+        });
+    });
+});

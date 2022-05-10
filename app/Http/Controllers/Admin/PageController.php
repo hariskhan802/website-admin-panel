@@ -37,7 +37,7 @@ class PageController extends Controller
         else if ($req->input('status') == 'trash') {
             $page2->where(['post_status' => 'trashed']);
         } */
-        return view('Admin.Page.index', ['name' => $name, 'totalRecords' => $totalRecords, 'data' => $page2->select(['pages.id', 'pages.title', 'pages.featured_image', 'pages.created_at', 'pages.updated_at', 'pages.is_front_page'])->orderBy('pages.id', 'DESC')->paginate(10)]);
+        return view('Admin.Page.index', ['name' => $name, 'totalRecords' => $totalRecords, 'data' => $page2->select(['pages.id', 'pages.title', 'pages.slug', 'pages.featured_image', 'pages.created_at', 'pages.updated_at'/* , 'pages.is_front_page' */])->orderBy('pages.id', 'DESC')->paginate(10)]);
     }
 
     private function set_fields_value($fieldGroup) {
@@ -111,9 +111,9 @@ class PageController extends Controller
             $data['featured_image'] = $input['imagename'];
         }
 
-        if (array_value($data, 'is_front_page') == '1') {
-            Page::where(['is_front_page' => '1'])->update(['is_front_page' => 0]);
-        }
+        // if (array_value($data, 'is_front_page') == '1') {
+        //     Page::where(['is_front_page' => '1'])->update(['is_front_page' => 0]);
+        // }
         
         if (empty(@$data['slug'])) {
             $data['slug'] = Str::slug(@$data['title']);
@@ -135,13 +135,13 @@ class PageController extends Controller
         $page = Page::findOrfail($id);
         if ($req->isMethod('post')) {
             $data = $req->all();
-            if(is_array($data['cf'])) {
+            $cf = [];
+            if(is_array(@$data['cf'])) {
                 // print_r($data['cf']); die;
                 
-                $cf = [];
                 // print_r($data['cf']); 
                 // echo('ttttttt');
-                foreach ($data['cf'] as $key => $sec) {
+                foreach (@$data['cf'] as $key => $sec) {
                     $cf[$key] = $sec;
                     foreach ($sec as $key2 => $content) {
                         // $cf[$key][$key2] = $content;
@@ -205,9 +205,9 @@ class PageController extends Controller
                 $img->save($path.'/'.$input['imagename'], 50);
                 $data['featured_image'] = $input['imagename'];
             }
-            if (array_value($data, 'is_front_page') == '1') {
-                Page::where(['is_front_page' => '1'])->update(['is_front_page' => 0]);
-            }
+            // if (array_value($data, 'is_front_page') == '1') {
+            //     Page::where(['is_front_page' => '1'])->update(['is_front_page' => 0]);
+            // }
            
             // print_r($data); die;
             if($page->update($data)) {
@@ -286,21 +286,21 @@ class PageController extends Controller
         }
         else {
             if ($req->ajax()) {
-                $fieldFiles = [
-                    '1' => 'Admin.Page.Fields.home-fields',
+                // $fieldFiles = [
+                //     '1' => 'Admin.Page.Fields.home-fields',
                 
-                ];
+                // ];
 
-                $customFields = $page->custom_fields;
-                unset($page->custom_fields);
-                // print_r($page->content); die;
-                $page->cfHTML = \View::make(array_value($fieldFiles, $id), ['cfFields' => object_to_array(json_decode($customFields)) ])->render();
-                $response = ['status' => 'success', 'item' => $page];
-                return $response;
+                // $customFields = $page->custom_fields;
+                // unset($page->custom_fields);
+                // // print_r($page->content); die;
+                // $page->cfHTML = \View::make(array_value($fieldFiles, $id), ['cfFields' => object_to_array(json_decode($customFields)) ])->render();
+                // $response = ['status' => 'success', 'item' => $page];
+                // return $response;
             }
             else {
                 $name = 'header & footer';
-                return view('Admin.Page.header-footer', ['name' => $name, 'headerFooter' => $headerFooter, ]);
+                return view('Admin.Page.header-footer', ['name' => $name, 'headerFooter' => $headerFooter, 'mPages' => Page::orderBy('id', 'DESC')->get()]);
             }
         }
 

@@ -98,10 +98,7 @@
                                         <tr>
                                             <td><input type="checkbox" name="action_ids[]" value="{{ $record->id }}"></td>
                                             <td>{{ $record->title }}
-                                                @if ($record->is_front_page == 1)
-                                                    
-                                                <span class="fp-btn">Front Page</span>
-                                                @endif
+                                                
                                             </td>
                                             <td><img src="{{ get_image($record->featured_image) }}" width="50"></td>
                                             <td>{{ $record->created_at->diffForHumans() }}</td>

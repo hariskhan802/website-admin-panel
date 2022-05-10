@@ -19,7 +19,7 @@ class AuthController extends Controller
                 'email' => 'required',
                 'password' => 'required',
             ]);
-            $redirectTo = $req->input('redirect_to') != '' ? $req->input('redirect_to') : route('dashboard');
+            $redirectTo = $req->input('redirect_to') != '' ? $req->input('redirect_to') : route('pages');
             
             if ($validated->fails()) {
                 return back()->withErrors($validated)->withInput();
@@ -27,9 +27,7 @@ class AuthController extends Controller
 
             // var_dump(Auth::attempt(['email' => $data['email'], 'password' =>  $data['password']], $req->input('rememberme'))); die;
             if (Auth::attempt(['email' => $data['email'], 'password' =>  $data['password']], $req->input('rememberme'))) {
-                if ($req->query('redirect')){
-                    return redirect($request->query('redirect'));
-                }
+                
                 // var_dump($redirectTo); die;
                 return redirect($redirectTo);
             }
@@ -48,7 +46,7 @@ class AuthController extends Controller
     }
 
     public function profile(Request $req) {
-        $user = \App\Models\User::findOrfail(array_value(c_user(), 'ID'));
+        $user = \App\Models\User::findOrfail(c_user()->id);
         if ($req->isMethod('post')) {
             $data = $req->all();
             $vArgs = [];
@@ -58,8 +56,9 @@ class AuthController extends Controller
                     'email' => 'required|email|unique:users',
                     'image' => 'required||file|max:1000|mimes:'.get_image_extensions('string'),
                 ];
+                
                 if ($data['_image'] == $user->image) 
-                    $vArgs['image'] = 'file|max:1000|mimes:'.get_image_extensions('string');
+                    unset($vArgs['image']);
                 if ($user->email == $data['email']) 
                     $vArgs['email'] = 'required|email';
             }
@@ -77,6 +76,8 @@ class AuthController extends Controller
                 $response['status'] = 'fail';
                 return $response;
             }
+            // print_r($vArgs); 
+            // die;
             $validated = \Validator::make($data, $vArgs);
             if ($validated->fails()) {
                 $response['errors'] = $validated->getMessageBag()->toArray();
@@ -102,7 +103,7 @@ class AuthController extends Controller
                 $img->save($path.'/'.$input['imagename'], 50);
                 $data['image'] = $input['imagename'];
             }
-            if (\App\Models\User::findOrfail(array_value(c_user(), 'ID'))->update($data)) {
+            if (\App\Models\User::findOrfail(c_user()->id)->update($data)) {
                 $response['status'] = 'success';
                 $response['message'] = 'You have updated successfully';
             }
@@ -110,7 +111,6 @@ class AuthController extends Controller
         }
         else {
             $name = 'profile';
-
             return view('Admin.Auth.profile', ['name' => $name,]);
         }
     }

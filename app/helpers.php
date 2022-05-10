@@ -1,5 +1,6 @@
 <?php
     use App\Models\Option;
+    use App\Models\Page;
     if (!function_exists('get_user_image')) {
 
         function get_user_image($img) {
@@ -28,7 +29,7 @@
 
         function get_video($video) {
             $url = '';
-            if(is_string($video) &&  $video != '' && (File::exists(public_path('/assets/images/'.$video)) && File::isFile(public_path('/assets/images/'.$video)))) {
+            if(is_string($video) &&  $video != '' && (File::exists(public_path('/assets/videos/'.$video)) && File::isFile(public_path('/assets/videos/'.$video)))) {
                 $url = asset('public/assets/videos/'.$video);
             }
             else {
@@ -212,7 +213,7 @@
     }
 
     function object_to_array($data)
-{
+    {
         if (is_array($data) || is_object($data))
         {
             $result = [];
@@ -225,6 +226,12 @@
         return $data;
     }
 
+    function get_page($id)
+    {
+        $page = Page::findOrFail($id);
+        $page->url = route('inner-page', $page->slug);
+        return $page;
+    }
     // if (!function_exists('fields')) {
 
     //     function update_option($optionName, $optionValue) {
